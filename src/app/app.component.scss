@@ -1,0 +1,67 @@
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: #333333;
+  display: flex;
+  align-items:center;
+}
+
+.navbar a {
+  color: #e7e7e7;
+}
+
+.navbar .brand {
+  display: block;
+  padding: 0 24px;
+  font-size: 24px;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items:center;
+  justify-content: flex-start;
+}
+
+.navbar ul li a {
+  color: #e7e7e7;
+  padding: 24px;
+  display: block;
+}
+
+.navbar ul a:hover,
+.navbar ul a:focus,
+.navbar ul .active {
+  background-color: #272727;
+}
+
+html, body {
+  margin:0;
+  padding:0;
+  height:60%;
+}
+
+#pagina {
+  position: relative;
+  min-height: 60%;
+}
+
+#contenido {
+  padding-bottom:50px; /* este valor debe ser igual o mayor al alto del pie */
+}
+
+#pie {
+  height:50px;
+  line-height:50px;
+  background:#272727;
+  color:white;
+  text-align:center;
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+}

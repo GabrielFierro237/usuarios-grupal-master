@@ -1,0 +1,40 @@
+<div class="contenedor" fxLayout="column">
+  <div
+    class="cuerpo"
+    fxLayout="column"
+    fxFlex="80"
+    fxLayoutAlign="center center"
+  >
+    <form #formularioBlog="ngForm" fxFlex class="formulario">
+      <div
+        fxLayout="column"
+        fxLayoutAlign="space-around stretch"
+        fxFlex
+        class="formulario1"
+      >
+        <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+          <h4 fxFlex="25">Permiso Nombre</h4>
+          <mat-form-field appearance="fill" fxFlex="75">
+            <mat-label>Ingrese el Nombre del Permiso</mat-label>
+            <input
+              matInput
+              name="nombre"
+              #primer_nombre="ngModel"
+              [(ngModel)]="agregarPermisos.nombre"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+    <!-- <pre fxFlex="30">{{editarUsuario|json}}</pre>  -->
+  </div>
+
+  <div class="cuerpo2" fxLayout="row" fxFlex="20" fxLayoutAlign="center center">
+    <button mat-flat-button color="primary" (click)="guardar(agregarPermisos)">
+      Guardar
+    </button>
+    <button mat-flat-button color="warn" routerLink="/permissions">
+      Cancelar
+    </button>
+  </div>
+</div>

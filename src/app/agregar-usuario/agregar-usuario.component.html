@@ -1,0 +1,59 @@
+<div class="contenedor" fxLayout="column">
+  <div class="cuerpo" fxLayout="column" fxFlex="80" fxLayoutAlign="center center">
+      <form #formularioBlog="ngForm" fxFlex class="formulario">
+          <div fxLayout="column" fxLayoutAlign="space-around stretch" fxFlex class="formulario1">
+              <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                  <h4 fxFlex="25">Primer Nombre</h4>
+                  <mat-form-field appearance="fill" fxFlex="75">
+                      <mat-label>Ingrese el primer Nombre</mat-label>
+                      <input matInput name="primer_nombre" #primer_nombre="ngModel" [(ngModel)]="agregarUsuario.primer_nombre">
+                  </mat-form-field>
+              </div>
+              <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                  <h4 fxFlex="25">Segundo Nombre</h4>
+                  <mat-form-field appearance="fill" fxFlex="75">
+                      <mat-label>Ingrese el segundo nombre</mat-label>
+                      <input matInput name="segundo_nombre" #segundo_nombre="ngModel" [(ngModel)]="agregarUsuario.segundo_nombre">
+                  </mat-form-field>
+              </div>
+              <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                  <h4 fxFlex="25">Primer Apellido</h4>
+                  <mat-form-field appearance="fill" fxFlex="75">
+                      <mat-label>Ingrese el segundo nombre</mat-label>
+                      <input matInput name="primer_apellido" #primer_apellido="ngModel" [(ngModel)]="agregarUsuario.primer_apellido">
+                  </mat-form-field>
+              </div>
+              <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                  <h4 fxFlex="25">Segundo Apellido</h4>
+                  <mat-form-field appearance="fill" fxFlex="75">
+                      <mat-label>Ingrese el segundo nombre</mat-label>
+                      <input matInput name="segundo_apellido" #segundo_apellido="ngModel" [(ngModel)]="agregarUsuario.segundo_apellido">
+                  </mat-form-field>
+              </div>
+              <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                <h4 fxFlex="25">Rol</h4>
+                <mat-form-field appearance="fill" fxFlex="75">
+                    <mat-label>Ingrese el rol</mat-label>
+                    <input matInput name="rol" #rol="ngModel" [(ngModel)]="agregarUsuario.rol" disabled="">
+                </mat-form-field>
+                <div>
+                    <select
+                      name="rol"
+                      #rol="ngModel"
+                      [(ngModel)]="agregarUsuario.rol"
+                    >
+                      <option *ngFor="let item of users" value="{{item._id}}">{{item.nombre_rol}}</option>
+                    </select>
+                </div>
+            </div>
+          </div>
+      </form>
+      <!-- <pre fxFlex="30">{{editarUsuario|json}}</pre>  -->
+  </div>
+
+  <div class="cuerpo2" fxLayout="row" fxFlex="20" fxLayoutAlign="center center">
+      <button mat-flat-button color="primary" (click)="guardar(agregarUsuario)">Guardar</button>
+      <button mat-flat-button color="warn" routerLink="/">Cancelar</button>
+  </div>
+</div>
+  

@@ -1,0 +1,41 @@
+<div class="contenedor" fxLayout="column" *ngIf="pelota">
+    <div class="cuerpo" fxLayout="column" fxFlex="100">
+      <div fxFlex="10" fxLayoutAlign="start start">
+        <button mat-raised-button color="primary" class="agregarbot" routerLink="/InsertarRoles">Nuevo Usuario<mat-icon>post_add
+          </mat-icon></button>
+      </div>
+      <mat-table [dataSource]="pelota" class="mat-elevation-z8" fxFlex="90">
+        <!-- Primer Nombre -->
+        <ng-container matColumnDef="nombre_rol">
+          <mat-header-cell *matHeaderCellDef> Nombre Rol </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.nombre_rol}} </mat-cell>
+        </ng-container>
+        <!-- Segundo Nombre -->
+        <ng-container matColumnDef="permisos_ids">
+          <mat-header-cell *matHeaderCellDef> Permisos IDs </mat-header-cell>
+          <mat-cell class="letra" *matCellDef="let element"> {{element.permisos_ids}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="editar">
+          <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-fab color="warn" aria-label="Example icon button with a delete icon" routerLink="/Editar/{{element._id}}">
+              <mat-icon>border_color</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <!-- eliminar Column -->
+        <ng-container matColumnDef="eliminar">
+          <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+              (click)="eliminaras(element._id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>

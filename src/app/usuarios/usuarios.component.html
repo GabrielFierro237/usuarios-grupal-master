@@ -1,0 +1,61 @@
+<div class="contenedor" fxLayout="column" *ngIf="pelota">
+  <div class="cuerpo" fxLayout="column" fxFlex="100">
+    <div fxFlex="10" fxLayoutAlign="start start">
+      <button mat-raised-button color="primary" class="agregarbot" routerLink="/Insertar">Nuevo Usuario<mat-icon>post_add
+        </mat-icon></button>
+    </div>
+    <mat-table [dataSource]="pelota" class="mat-elevation-z8" fxFlex="90">
+      <!-- Primer Nombre -->
+      <ng-container matColumnDef="1_Nombre">
+        <mat-header-cell *matHeaderCellDef> Primer Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.primer_nombre}} </mat-cell>
+      </ng-container>
+      <!-- Segundo Nombre -->
+      <ng-container matColumnDef="2_Nombre">
+        <mat-header-cell *matHeaderCellDef> Segundo Nombre </mat-header-cell>
+        <mat-cell class="letra" *matCellDef="let element"> {{element.segundo_nombre}} </mat-cell>
+      </ng-container>
+      <!-- Primer Apellido -->
+      <ng-container matColumnDef="1_Apellido">
+        <mat-header-cell *matHeaderCellDef> Primer Apellido </mat-header-cell>
+        <mat-cell class="letra" *matCellDef="let element"> {{element.primer_apellido}} </mat-cell>
+      </ng-container>
+      <!-- Segundo Apellido -->
+      <ng-container matColumnDef="2_Apellido">
+        <mat-header-cell *matHeaderCellDef> Segundo Apellido </mat-header-cell>
+        <mat-cell class="letra" *matCellDef="let element"> {{element.segundo_apellido}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="rol">
+        <mat-header-cell *matHeaderCellDef> Rol </mat-header-cell>
+        <mat-cell class="letra" *matCellDef="let element"> {{element.rol}} </mat-cell>
+      </ng-container>
+      <!-- rol -->
+      <ng-container matColumnDef="Nuevo_usuario">
+        <mat-header-cell *matHeaderCellDef> Nuevo_Usuario </mat-header-cell>
+        <mat-cell class="letra" *matCellDef="let element"> {{element.nuevo_usuario}} </mat-cell>
+      </ng-container>
+      <!-- editar Column -->
+      <ng-container matColumnDef="editar">
+        <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-fab color="accent" aria-label="Example icon button with a delete icon" routerLink="/Editar/{{element._id}}">
+            <mat-icon>border_color</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <!-- eliminar Column -->
+      <ng-container matColumnDef="eliminar">
+        <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-fab color="warn" aria-label="Example icon button with a delete icon"
+            (click)="eliminaras(element._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

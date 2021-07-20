@@ -1,0 +1,60 @@
+<div class="contenedor" fxLayout="column">
+    <div class="cuerpo" fxLayout="column" fxFlex="80" fxLayoutAlign="center center">
+        <div class="Titulo">
+            Editar Usuario
+        </div>
+        <form #formularioBlog="ngForm" fxFlex class="formulario">
+            <div fxLayout="column" fxLayoutAlign="space-around stretch" fxFlex class="formulario1">
+                <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                    <h4 fxFlex="25">Primer Nombre</h4>
+                    <mat-form-field appearance="fill" fxFlex="75">
+                        <mat-label>Ingrese el primer Nombre</mat-label>
+                        <input matInput name="primer_nombre" #primer_nombre="ngModel" [(ngModel)]="editarUsuario.primer_nombre">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                    <h4 fxFlex="25">Segundo Nombre</h4>
+                    <mat-form-field appearance="fill" fxFlex="75">
+                        <mat-label>Ingrese el segundo nombre</mat-label>
+                        <input matInput name="segundo_nombre" #segundo_nombre="ngModel" [(ngModel)]="editarUsuario.segundo_nombre">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                    <h4 fxFlex="25">Primer Apellido</h4>
+                    <mat-form-field appearance="fill" fxFlex="75">
+                        <mat-label>Ingrese el segundo nombre</mat-label>
+                        <input matInput name="primer_apellido" #primer_apellido="ngModel" [(ngModel)]="editarUsuario.primer_apellido">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                    <h4 fxFlex="25">Primer Apellido</h4>
+                    <mat-form-field appearance="fill" fxFlex="75">
+                        <mat-label>Ingrese el segundo nombre</mat-label>
+                        <input matInput name="segundo_apellido" #segundo_apellido="ngModel" [(ngModel)]="editarUsuario.segundo_apellido">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+                    <h4 fxFlex="25">Rol del usuario</h4>
+                    <mat-form-field appearance="fill" fxFlex="75">
+                        <mat-label>Ingrese el rol del usuario</mat-label>
+                        <input matInput name="rol" #segundo_apellido="ngModel" [(ngModel)]="editarUsuario.rol" disabled="">
+                    </mat-form-field>
+                    <div>
+                        <select
+                          name="rol"
+                          #rol="ngModel"
+                          [(ngModel)]="editarUsuario.rol"
+                        >
+                          <option *ngFor="let item of users" value="{{item._id}}">{{item.nombre_rol}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="cuerpo2" fxLayout="row" fxFlex="20" fxLayoutAlign="center center">
+        <button mat-flat-button color="primary" routerLink="/"(click)="editar(editarUsuario._id, editarUsuario)">Guardar</button>
+        <button mat-flat-button color="warn" routerLink="/adiminCat">Cancelar</button>
+    </div>
+</div>
+
